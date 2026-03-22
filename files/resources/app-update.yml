@@ -1,0 +1,6 @@
+owner: mydiabby
+repo: uploader-release
+provider: github
+updaterCacheDirName: mydiabby-uploader-updater
+publisherName:
+  - MDHC SAS
