@@ -23,19 +23,19 @@ cp "$FILES_DIR/icon.png" "$ICON_DIR/mydiabby-uploader.png"
 cat > "$DESKTOP_FILE" << EOF
 [Desktop Entry]
 Name=myDiabby Uploader
-Exec=$INSTALL_DIR/mydiabby-uploader
+Exec=$INSTALL_DIR/mydiabby-uploader --enable-experimental-web-platform-features
 Icon=mydiabby-uploader
 Type=Application
-Categories=Health;MedicalSoftware;Science;
-Comment=myDiabby device uploader
+Categories=MedicalSoftware;Science;
+Comment=Upload your device's data to myDiabby
 Terminal=false
 EOF
 
 gtk-update-icon-cache /usr/share/icons/hicolor/ 2>/dev/null || true
 
 if [ -n "$SUDO_USER" ]; then
-  usermod -a -G dialout,plugdev "$SUDO_USER"
-  echo "Added $SUDO_USER to dialout and plugdev groups."
+  usermod -a -G uucp,dialout,plugdev "$SUDO_USER"
+  echo "Added $SUDO_USER to uucp, dialout and plugdev groups."
   echo "Please log out and back in for group changes to take effect."
 fi
 
